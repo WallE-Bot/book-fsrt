@@ -1,1 +1,1 @@
-# book-workthrough-ful-stack-react-typescript-and-node
+# work-through of Full-Stack React, TypeScript, and Node
