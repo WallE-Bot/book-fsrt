@@ -45,6 +45,7 @@ access modifiers:
   only for fields through '#' character.
 - private - accessible only from within the class
 - readonly - read-only after set
+- protected - accessible by parent and inheriting classes only
 
 getters and setters:
 - getter - property allowing modification of field before returning
@@ -63,6 +64,24 @@ interfaces:
 - allows instances to share structure with differing implementation details
 
 inheritance:
-- 
+- code reuse and commonality
+
+namespaces:
+- create scope and context, hide information in one scope and away from others
+- members of a namespace will not bleed out to other files as part of the global scope etc
+- ie the instantiations would also occur in the namespace as well
+
+abstract classes:
+- elements of class and interface
+- implementation details as in class, signatures only as in interface
+- absract classes cannot be directly insantiated, as they have abstract members
+  which need to be implemented by inheriting classes
+
+overriding:
+- child class recreating/re-implementing member of parent class
+  for a unique implementation of the parents memmber
+
+interfaces:
+- separate definition from implementation, thereby providing abstraction 
 
 */
