@@ -27,7 +27,7 @@ type aliases:
 function return types:
 - if none provided, default to void, can declare as such to be explicit
 
-functions as stypes:
+functions as types:
 - types can also be an entire function signature
 
 never:
@@ -62,6 +62,10 @@ interfaces:
 - aka contracts since set strict rules about IO of a type
 - just a set of rules, need instance to define the actual work/implementation details
 - allows instances to share structure with differing implementation details
+- separate definition from implementation, thereby providing abstraction
+- no super for interfaces, they're 'implemented'
+- not inherited, so no reuse necessarily, however provide structure,
+  rules and expectations
 
 inheritance:
 - code reuse and commonality
@@ -81,7 +85,17 @@ overriding:
 - child class recreating/re-implementing member of parent class
   for a unique implementation of the parents memmber
 
-interfaces:
-- separate definition from implementation, thereby providing abstraction 
+generics:
+- allow type definition by the user of the type instead of the creator
+- type declaration during usage not essential, compiler can determine
+- can extend an interface as a generic type ie <T extends HasLength>
+
+optional chaining:
+- ? at end of property will stop if null or undefined, otherwise continue down the chain
+- this greatly helps reduce conditionals for property value confirmation
+
+nullish coalescing:
+- ternary operator shortcut as ??
+- specifically checks for null or undefined, not truthiness, ie more accurate than ||
 
 */
