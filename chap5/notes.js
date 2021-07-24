@@ -30,7 +30,7 @@ useMemo
 - similar to useCallback in only runs if the values change
 
 useReducer
-- simplified Reduc.  Takes reducer and initial state as parameters,
+- simplified Redux.  Takes reducer and initial state as parameters,
   returns 2 objects, a state object and an action.
 - good to use instead of useEffect for more complex state data ex nested data etc
 
@@ -41,6 +41,11 @@ useContext
   and prefer Redux instead.
 
 useRef
-- 
+- holds some value related to a component, usually some DOM element, and
+  does not trigger a re-render if that value changes.
+- use to escape the state-driven event loop if need direct access to some value
+  or element
+
+
 
 */
