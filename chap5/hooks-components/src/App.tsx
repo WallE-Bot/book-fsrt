@@ -1,5 +1,5 @@
-import React, { useReducer } from 'react';
-import Greeting from './Greeting';
+import React, { useReducer, useState, useCallback } from 'react';
+import GreetingFunctional from './GreetingFunctional';
 
 const reducer = (state: any, action: any) => {
   console.log('enteredNamedReducer');
@@ -23,17 +23,44 @@ const initialState = {
 }
 
 function App() {
-  // return from reducer
   const [{message, enteredName}, dispatch] = useReducer(reducer, initialState);
 
-  // return
+  const [startCount, setStartCount] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const setCountCallBack = useCallback(() => {
+    const inc = count + 1 > startCount ? count + 1:
+      Number(count + 1) + startCount;
+
+    setCount(inc);
+  }, [count, startCount])
+
+  const onWelcomeButtonClick = () => {
+    setCountCallBack();
+  }
+
+  const onChangeStartCount = (e:
+    React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setStartCount(Number(e.target.value));
+  }
+
   return (
     <div>
-      <Greeting
+      <GreetingFunctional
         message={message}
         enteredName={enteredName}
         greetingDispatcher={dispatch}
       />
+
+      <p>Enter a number and we'll incrememt it</p>
+      <input
+        value={startCount}
+        onChange={onChangeStartCount}
+      />
+      <button onClick={onWelcomeButtonClick}>increment</button>
     </div>
   );
 }
+
+export default App;

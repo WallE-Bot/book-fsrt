@@ -6,18 +6,18 @@ interface GreetingProps {
 
 const Greeting: FC<GreetingProps> =
   ({name}: GreetingProps) => {
-    const {message, setMessage} = useState('');
+    const [message, setMessage] = useState('');
     useEffect(() => {
       if(name) {
         setMessage(`Hello from, ${name}`);
       }
-      if(!name) {
-        return <div>no name given</div>
-      }
-      return <div>
-        {message}
-      </div>;
     }, [name])
+    if(!name) {
+      return <div>no name given</div>
+    }
+    return <div>
+      {message}
+    </div>;
   }
 
 export default Greeting;
