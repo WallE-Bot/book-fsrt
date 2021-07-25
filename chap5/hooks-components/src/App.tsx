@@ -1,5 +1,10 @@
-import React, { useReducer, useState, useCallback } from 'react';
+import React, { useReducer, useState, useCallback, useEffect } from 'react';
 import GreetingFunctional from './GreetingFunctional';
+import ListCreator from './ListCreator';
+
+export interface ListItem {
+  id: number;
+}
 
 const reducer = (state: any, action: any) => {
   console.log('enteredNamedReducer');
@@ -29,11 +34,23 @@ function App() {
   const [count, setCount] = useState(0);
 
   const setCountCallBack = useCallback(() => {
+    console.log(count, typeof count);
     const inc = count + 1 > startCount ? count + 1:
       Number(count + 1) + startCount;
 
     setCount(inc);
   }, [count, startCount])
+
+  const [listItems, setListItems] = useState<Array<ListItem>>();
+
+  useEffect(() => {
+    const li = [];
+
+    for (let i = 0; i < count; i++) {
+      li.push({id: i});
+    }
+    setListItems(li);
+  }, [count])
 
   const onWelcomeButtonClick = () => {
     setCountCallBack();
@@ -58,7 +75,10 @@ function App() {
         value={startCount}
         onChange={onChangeStartCount}
       />
+      <span>{count}</span>
       <button onClick={onWelcomeButtonClick}>increment</button>
+
+      <ListCreator listItems={listItems} />
     </div>
   );
 }
