@@ -19,9 +19,6 @@ exports[`Test DisplayText matches snapshot 1`] = `
       <label
         data-testid="final-msg"
       />
-      <p>
-        test entry
-      </p>
     </form>
   </div>
 </body>

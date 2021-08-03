@@ -17,7 +17,7 @@ const UserTodos: FC<UserTodosProps> = ({username}) => {
       const userByName = users.find((usr: any) => {
         return usr.username.toLowerCase() === username;
       });
-      console.log('user by username', userByName);
+
       const todosResponse = await fetch(
         `https://jsonplaceholder.typicode.com/todos`
       );
@@ -32,7 +32,6 @@ const UserTodos: FC<UserTodosProps> = ({username}) => {
           </li>;
         });
         setTodos(todoList);
-        console.log('user todos', usersTodos);
       }
     }
   }
